@@ -8,7 +8,7 @@ export default function SkillsSection() {
     },
     {
       category: "Backend",
-      skills: ["Python", "Django", "PostgreSQL", "MongoDB", "Firebase"],
+      skills: ["Python", "Django", "PostgreSQL", "SQLite", "Firebase"],
     },
     {
       category: "Tools",
