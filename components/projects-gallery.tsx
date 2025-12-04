@@ -18,7 +18,7 @@ export default function ProjectsGallery() {
       title: "Attendance management system with face recognition",
       description: "A complete web application for managing absences, facial-recognition attendance tracking, calculating employee hourly rates, providing a dashboard, and automatically sending emails for absence requests.",
       tags: ["React", "Faceapi-js",  "Postgresql", "Brevo API"],
-      image: "/task-management-board.png",
+      image: "/task-management-board.PNG",
       link: "#",
     },
     {
@@ -36,7 +36,7 @@ export default function ProjectsGallery() {
       title: "ATS Resume analyser",
       description: "AI-driven platform that reviews your resume, detects missing keywords, scores ATS compatibility, and generates an optimized version tailored to job descriptions",
       tags: ["React", "Storybook", "Tailwind CSS", "TypeScript","Gemini API"],
-      image: "/design-system-abstract.png",
+      image: "/design-system-abstract.PNG",
       link: "#",
     },
   ]
