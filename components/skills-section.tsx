@@ -11,8 +11,8 @@ export default function SkillsSection() {
       skills: ["Python", "Django", "PostgreSQL", "MongoDB", "Firebase"],
     },
     {
-      category: "Herramientas",
-      skills: ["Git", "Docker", "Vercel", "Jest", "Figma"],
+      category: "Tools",
+      skills: ["Git", "Docker", "Vercel", "Figma"],
     },
     {
       category: "Soft Skills",
