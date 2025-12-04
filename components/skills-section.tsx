@@ -24,7 +24,7 @@ export default function SkillsSection() {
     <section id="habilidades" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
-          <p className="text-primary font-semibold text-sm tracking-widest uppercase mb-3">Mis habilidades</p>
+          
           <h2 className="text-4xl md:text-5xl font-bold text-foreground text-balance">Technology and skills</h2>
         </div>
 

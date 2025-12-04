@@ -43,8 +43,8 @@ export default function HeroSection() {
         {/* Right Image */}
         <div className="relative">
           <div className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl flex items-center justify-center">
-            <div className="w-3/4 h-3/4 bg-gradient-to-tr from-primary to-accent rounded-xl opacity-60" >
-            <img src="" alt="" /></div>
+            <div className="w-3/4 h-3/4 bg-gradient-to-tr from-primary to-accent rounded-xl " >
+            <img src="/johan.jpg" alt="" /></div>
           </div>
           <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-3xl" />
         </div>

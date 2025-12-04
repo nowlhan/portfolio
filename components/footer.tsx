@@ -72,8 +72,8 @@ export default function Footer() {
         {*/}
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-foreground/60">
-          <p>&copy; {currentYear} Dev Portfolio. Todos los derechos reservados.</p>
-          <p>Hecho con ❤️ con React y Next.js</p>
+          
+          <p>Build with React and Next.js</p>
         </div>
       
     </footer>
