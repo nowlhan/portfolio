@@ -86,7 +86,7 @@ export default function ProjectsGallery() {
                   href={project.link}
                   className="inline-flex items-center gap-2 text-primary hover:text-accent font-semibold text-sm pt-2 transition-colors"
                 >
-                  Ver proyecto
+                  View Project
                   <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
