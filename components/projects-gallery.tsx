@@ -11,7 +11,7 @@ export default function ProjectsGallery() {
         "Plataforma de comercio electrónico con carrito de compras, pasarela de pagos y panel administrativo.",
       tags: ["React", "Next.js", "TailwindCSS", "PostgreSQL", "Glassmorphism"],
       image: "/audiobook2.PNG",
-      link: "#",
+      link: "https://audiobook-platform-taupe.vercel.app/",
     },
     {
       id: 2,
