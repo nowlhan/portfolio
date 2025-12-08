@@ -1,5 +1,6 @@
 "use client"
 
+import React, { useState } from "react"
 import { Mail, Linkedin, Github, Twitter } from "lucide-react"
 
 export default function ContactSection() {
@@ -22,13 +23,43 @@ export default function ContactSection() {
       href: "https://github.com/nowlhan",
       color: "hover:text-gray-800",
     },
-    {
-      icon: Twitter,
-      label: "Twitter",
-      href: "#",
-      color: "hover:text-blue-400",
-    },
+    
   ]
+
+  // Form state
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [message, setMessage] = useState("")
+  const [status, setStatus] = useState<null | "idle" | "sending" | "success" | "error">("idle")
+  const [errorText, setErrorText] = useState<string | null>(null)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setErrorText(null)
+    if (!name.trim() || !email.trim() || !message.trim()) {
+      setErrorText("Please fill all fields.")
+      setStatus("error")
+      return
+    }
+    setStatus("sending")
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      })
+      const data = await res.json()
+      if (!res.ok) throw new Error(data?.error || "Failed to send")
+      setStatus("success")
+      setName("")
+      setEmail("")
+      setMessage("")
+    } catch (err: any) {
+      console.error(err)
+      setErrorText(err?.message || "Failed to send message")
+      setStatus("error")
+    }
+  }
 
   return (
     <section id="contacto" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
@@ -44,12 +75,14 @@ export default function ContactSection() {
         </div>
 
         {/* Contact Form */}
-        <form className="space-y-4 bg-card p-8 rounded-xl border border-border max-w-2xl mx-auto">
+        <form onSubmit={handleSubmit} className="space-y-4 bg-card p-8 rounded-xl border border-border max-w-2xl mx-auto" aria-live="polite">
           <div className="space-y-2">
             <label className="block text-sm font-medium text-foreground text-left">Name</label>
             <input
               type="text"
               placeholder="Your name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className="w-full px-4 py-3 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
             />
           </div>
@@ -59,6 +92,8 @@ export default function ContactSection() {
             <input
               type="email"
               placeholder="yourmail@email.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-3 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
             />
           </div>
@@ -68,16 +103,21 @@ export default function ContactSection() {
             <textarea
               placeholder="Your message"
               rows={4}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
               className="w-full px-4 py-3 bg-background border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all resize-none"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-all duration-200 font-semibold"
+            disabled={status === "sending"}
+            className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-accent transition-all duration-200 font-semibold disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            Send
+            {status === "sending" ? "Sending..." : "Send"}
           </button>
+          {status === "success" && <p className="text-sm text-green-600">Message sent. Merci!</p>}
+          {status === "error" && errorText && <p className="text-sm text-red-600">{errorText}</p>}
         </form>
 
         {/* Social Links */}

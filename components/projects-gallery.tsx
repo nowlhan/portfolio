@@ -37,7 +37,7 @@ export default function ProjectsGallery() {
       description: "AI-driven platform that reviews your resume, detects missing keywords, scores ATS compatibility, and generates an optimized version tailored to job descriptions",
       tags: ["React", "Storybook", "Tailwind CSS", "TypeScript","Gemini API"],
       image: "/design-system-abstract.PNG",
-      link: "#",
+      link: "https://ats-cv-build.vercel.app/",
     },
   ]
 
